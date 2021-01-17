@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from src.namedb import NameDB
 import json
 
@@ -15,7 +15,12 @@ print(name_db.select_sum_of_amounts())
 
 @api_blueprint.route("/names", methods=["GET"])
 def get_names():
-    return json.dumps(name_db.select_names_by_name_asc()), 200
+    order_by_name = request.form.get("orderByName").lower == "true"
+
+    if order_by_name:
+        return json.dumps(name_db.select_names_by_name_asc()), 200
+    else:
+        return json.dumps(name_db.select_names_by_amount_dsc()), 200
 
 
 @api_blueprint.route("/name/<string:name>", methods=["GET"])
