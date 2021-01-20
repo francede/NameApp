@@ -15,12 +15,12 @@ print(name_db.select_sum_of_amounts())
 
 @api_blueprint.route("/names", methods=["GET"])
 def get_names():
-    order_by_name = request.form.get("orderByName").lower == "true"
+    order_by_name = request.form.get("orderByName", "None").lower == "true"
 
     if order_by_name:
-        return json.dumps(name_db.select_names_by_name_asc()), 200
+        return json.dumps({"names": name_db.select_names_by_name_asc()}), 200
     else:
-        return json.dumps(name_db.select_names_by_amount_dsc()), 200
+        return json.dumps({"names": name_db.select_names_by_amount_dsc()}), 200
 
 
 @api_blueprint.route("/name/<string:name>", methods=["GET"])
