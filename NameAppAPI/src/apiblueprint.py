@@ -4,7 +4,7 @@ import json
 
 api_blueprint = Blueprint("api_endpoints", __name__)
 
-name_db = NameDB("../res/names.json")
+name_db = NameDB("res/names.json")
 """
 print(name_db.select_names_by_amount_dsc())
 print(name_db.select_names_by_name_asc())
