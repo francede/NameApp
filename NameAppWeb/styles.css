@@ -1,0 +1,24 @@
+.mainContainer{
+    border: solid black 1px;
+    padding: 0.5em;
+    display: inline-block;
+}
+
+.subContainer{
+    border: solid red 1px;
+    padding: 0.5em;
+}
+
+*{
+    font-family: sans-serif;
+    margin: 2px;
+}
+
+.dark{
+    background-color: #DDD;
+}
+
+.nameItem{
+    display: flex;
+    justify-content: space-between;
+}
