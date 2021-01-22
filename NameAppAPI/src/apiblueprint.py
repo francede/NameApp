@@ -5,15 +5,6 @@ import json
 api_blueprint = Blueprint("api_endpoints", __name__)
 
 name_db = NameDB("res/names.json")
-"""
-print(name_db.select_names_by_amount_dsc())
-print(name_db.select_names_by_name_asc())
-print(name_db.select_name("Janne"))
-print(name_db.select_name("afea"))
-print(name_db.select_name("liisa"))
-print(name_db.select_sum_of_amounts())
-"""
-
 
 @api_blueprint.route("/names", methods=["GET"])
 def get_names():

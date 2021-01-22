@@ -13,7 +13,7 @@ class TotalAmount extends React.Component{
     }
     
     componentDidMount(){
-        fetch("http://localhost:5000/api/amount")
+        fetch(baseUrl + "/api/amount")
         .then(res => res.json())
         .then(
             

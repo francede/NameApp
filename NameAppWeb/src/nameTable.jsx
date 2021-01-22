@@ -12,7 +12,7 @@ class NameTable extends React.Component{
     }
     
     componentDidMount(){
-        fetch("http://localhost:5000/api/names")
+        fetch(baseUrl + "/api/names")
         .then(res => res.json())
         .then(
             (res) => {
@@ -25,7 +25,6 @@ class NameTable extends React.Component{
     }
     
     sortNames(e){
-        console.log(e.target.value);
         switch(e.target.value){
             case "amount":
                 this.setState({

@@ -21,9 +21,8 @@ class NameSearch extends React.Component{
     handleClick(){
         var name = this.state.inputValue;
         
-        fetch("http://localhost:5000/api/name/"+name)
+        fetch(baseUrl + "/api/name/"+name)
         .then(res => {
-            console.log(res);
             if(!res.ok && res.status === 404){
                 this.setState({isLoaded:true, isFound:false});
                 throw new Error("404: Name not found in the database.");
