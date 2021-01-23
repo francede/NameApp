@@ -17,6 +17,7 @@ class NameTable extends React.Component{
         .then(
             (res) => {
                 this.setState({names:res.names, isLoaded:true});
+                this.sortNames("amount");
             })
         .catch(
             (error) => {
@@ -24,8 +25,8 @@ class NameTable extends React.Component{
             });
     }
     
-    sortNames(e){
-        switch(e.target.value){
+    sortNames(by){
+        switch(by){
             case "amount":
                 this.setState({
                     names:[].concat(this.state.names).sort(
@@ -56,7 +57,7 @@ class NameTable extends React.Component{
         
         return (
             <div className="subContainer">
-                <div onChange={(e) => this.sortNames(e)} id="radioContainer">
+                <div onChange={(e) => this.sortNames(e.target.value)} id="radioContainer">
                     Sort<br/>
                     <input type="radio" value="amount" name="sort" defaultChecked="true"/><label>By amount</label><br/>
                     <input type="radio" value="name" name="sort"/><label>By name</label>
