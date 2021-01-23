@@ -9,7 +9,7 @@ name_db = NameDB("res/names.json")
 
 @api_blueprint.route("/names", methods=["GET"])
 def get_names():
-    order_by = request.args.get("orderBy", "default").lower()
+    order_by = request.args.get("order_by", "default").lower()
     print(order_by)
 
     if order_by == "name":
