@@ -52,13 +52,11 @@ class AutocompleteInput extends React.Component{
     }
     
     handleClick(e){
-        console.log(e.target.getAttribute("value"));
         this.changeInput(e.target.getAttribute("value")); //e.target.value will not work, because value is not a default attribute of <div>
         this.toggleFocus(e);
     }
     
     changeInput(value){
-        console.log(value);
         this.setState({inputValue: value});
         this.props.onValueChange(value);
     }
