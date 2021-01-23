@@ -6,9 +6,6 @@ class AutocompleteInput extends React.Component{
             hasFocus: false,
             inputValue: ""
         }
-        
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this)
     }
     
     fetchNames(nameStart){
@@ -32,7 +29,7 @@ class AutocompleteInput extends React.Component{
     }
     
     handleChange(e){
-        this.changeInput(e.target.value)
+        this.changeInput(e.target.value);
         this.fetchNames(e.target.value);
     }
     
@@ -55,11 +52,13 @@ class AutocompleteInput extends React.Component{
     }
     
     handleClick(e){
+        console.log(e.target.getAttribute("value"));
         this.changeInput(e.target.getAttribute("value")); //e.target.value will not work, because value is not a default attribute of <div>
         this.toggleFocus(e);
     }
     
     changeInput(value){
+        console.log(value);
         this.setState({inputValue: value});
         this.props.onValueChange(value);
     }
@@ -67,7 +66,7 @@ class AutocompleteInput extends React.Component{
     
     render(){
         const autocompleteList = (
-            <div id={this.props.id + "_autocompleteList"} className="autocompleteList" onClick={this.handleClick} tabIndex="0">
+            <div id={this.props.id + "_autocompleteList"} className="autocompleteList" onClick={(e)=>this.handleClick(e)} tabIndex="0">
                 {this.state.autocompleteList.map( (name) => 
                     <div key={name} value={name}>{name}</div>
                 )}
@@ -76,7 +75,7 @@ class AutocompleteInput extends React.Component{
         
         return (
             <div className="autocomplete" onFocus={(e) => this.toggleFocus(e)} onBlur={(e) => this.toggleFocus(e)}>
-                <input type="text" onChange={this.handleChange} value={this.state.inputValue} />
+                <input type="text" onChange={(e)=>this.handleChange(e)} value={this.state.inputValue} />
                 {this.state.hasFocus && autocompleteList}
             </div>
         );
