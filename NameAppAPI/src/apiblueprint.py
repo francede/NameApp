@@ -6,14 +6,18 @@ api_blueprint = Blueprint("api_endpoints", __name__)
 
 name_db = NameDB("res/names.json")
 
+
 @api_blueprint.route("/names", methods=["GET"])
 def get_names():
-    order_by_name = request.form.get("orderByName", "None").lower == "true"
+    order_by = request.args.get("orderBy", "default").lower()
+    print(order_by)
 
-    if order_by_name:
+    if order_by == "name":
         return json.dumps({"names": name_db.select_names_by_name_asc()}), 200
-    else:
+    elif order_by == "amount":
         return json.dumps({"names": name_db.select_names_by_amount_dsc()}), 200
+    else:
+        return json.dumps({"names": name_db.select_names()}), 200
 
 
 @api_blueprint.route("/name/<string:name>", methods=["GET"])

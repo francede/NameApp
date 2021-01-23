@@ -7,6 +7,9 @@ class NameDB:
             self.name_data = json.load(json_file)["names"]
             print(self.name_data)
 
+    def select_names(self):
+        return self.name_data
+
     def select_names_by_amount_dsc(self):
         return sorted(self.name_data, key=lambda k: k["amount"], reverse=True)
 
