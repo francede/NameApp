@@ -26,7 +26,7 @@ Returns list of all names in the database. By default returns names ordered by i
     
 ###Fetch names starting with x
 
-Returns list of names starting with given substring. List is sorted alphabetically.
+Returns list of names starting with given substring. List is sorted alphabetically. Returns empty array if no matching names are found.
 
 * **URL**
 
