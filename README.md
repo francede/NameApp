@@ -24,6 +24,31 @@ Returns list of all names in the database. By default returns names ordered by i
   * **Code:** 200 <br/>
     **Content:** `{ "names" : [{"name":"Ville", "amount":"10"}] }`
     
+###Fetch names starting with x
+
+Returns list of names starting with given substring. List is sorted alphabetically.
+
+* **URL**
+
+    `/api/names/:name_start`
+    
+* **Method**
+
+    `GET`
+
+*  **URL Params**
+    
+    **Required:**
+    
+    * `:name_start=[string]` <br/>
+    Case insensitive start of the names.
+   
+* **Success Response:**
+
+  * **Code:** 200 <br/>
+    **Content:** `["Anna","Antti"]`
+
+    
 ###Fetch name
 
 Returns one name from the database.

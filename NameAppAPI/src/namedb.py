@@ -27,3 +27,10 @@ class NameDB:
         for item in self.name_data:
             total = total + item["amount"]
         return total
+
+    def select_names_starting_with(self, string):
+        names = []
+        for item in self.name_data:
+            if item["name"].lower().startswith(string.lower()):
+                names.append(item["name"])
+        return sorted(names)

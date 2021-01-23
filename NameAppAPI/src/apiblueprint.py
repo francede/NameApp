@@ -20,6 +20,12 @@ def get_names():
         return json.dumps({"names": name_db.select_names()}), 200
 
 
+@api_blueprint.route("/names/<string:name_start>", methods=["GET"])
+def get_names_starting_with(name_start):
+    names = name_db.select_names_starting_with(name_start)
+    return json.dumps(names), 200
+
+
 @api_blueprint.route("/name/<string:name>", methods=["GET"])
 def get_name(name):
     name = name_db.select_name(name)
@@ -32,4 +38,3 @@ def get_name(name):
 @api_blueprint.route("/sum", methods=["GET"])
 def get_amount():
     return json.dumps({"sum": name_db.select_sum_of_amounts()})
-
