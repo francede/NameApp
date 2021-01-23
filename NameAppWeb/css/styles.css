@@ -44,6 +44,30 @@ div{
     margin-bottom: 1em;
 }
 
+.autocomplete{
+    display: inline-block;
+    position: relative;
+}
+
+.autocompleteList{
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    outline: 0;
+}
+
+.autocompleteList div{
+    background-color: var(--bg);
+    cursor: pointer;
+}
+
+.autocompleteList div:hover{
+    background-color: var(--hl);
+}
+
 .oddItem{
     background-color: var(--bg2);
 }

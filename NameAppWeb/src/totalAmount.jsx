@@ -18,7 +18,7 @@ class TotalAmount extends React.Component{
         .then(
             
             (res) => {
-                this.setState({amount:res.sum_of_amounts, isLoaded:true});
+                this.setState({amount:res.sum, isLoaded:true});
             },
 
             (error) => {

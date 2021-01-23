@@ -15,11 +15,10 @@ class NameSearch extends React.Component{
         }
         
         this.handleClick = this.handleClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleValueChange = this.handleValueChange.bind(this);
     }
     
     handleClick(e){
-        
         if(e.type === "keydown" && e.keyCode !== 13) return; //Check that key is enter (keyCode===13)
         
         var name = this.state.inputValue;
@@ -43,8 +42,8 @@ class NameSearch extends React.Component{
             });
     }
     
-    handleChange(e){
-        this.setState({inputValue: e.target.value});
+    handleValueChange(value){
+        this.setState({inputValue: value});
     }
         
     render() {
@@ -58,7 +57,8 @@ class NameSearch extends React.Component{
         return (
             <div className="subContainer">
                 <div>
-                    Name:<input type="text" value={this.state.inputValue} onChange={this.handleChange} onKeyDown={this.handleClick}></input>
+                    Name:
+                    <AutocompleteInput id="search_input" onValueChange={(value) => this.handleValueChange(value)}/>
                     <button onClick={this.handleClick} className="material-icons">search</button>
                 </div>
                 <br/>
