@@ -18,7 +18,10 @@ class NameSearch extends React.Component{
         this.handleChange = this.handleChange.bind(this);
     }
     
-    handleClick(){
+    handleClick(e){
+        
+        if(e.type === "keydown" && e.keyCode !== 13) return; //Check that key is enter (keyCode===13)
+        
         var name = this.state.inputValue;
         
         fetch(baseUrl + "/api/name/"+name)
@@ -54,8 +57,10 @@ class NameSearch extends React.Component{
         
         return (
             <div className="subContainer">
-                Name:<input value={this.state.inputValue} onChange={this.handleChange}></input>
-                <button onClick={this.handleClick}>Search</button>
+                <div>
+                    Name:<input type="text" value={this.state.inputValue} onChange={this.handleChange} onKeyDown={this.handleClick}></input>
+                    <button onClick={this.handleClick} className="material-icons">search</button>
+                </div>
                 <br/>
                 {nameElement}
             </div>

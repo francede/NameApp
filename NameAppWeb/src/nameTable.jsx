@@ -47,7 +47,7 @@ class NameTable extends React.Component{
         var names = <div>Waiting for data...</div>
         if(this.state.isLoaded){
             names = 
-                <div className="subContainer">
+                <div>
                     {this.state.names.map( (nameObj, index) => 
                         <NameItem key={nameObj.name} name={nameObj.name} amount={nameObj.amount} parity={index%2}/>
                     )}
@@ -56,7 +56,7 @@ class NameTable extends React.Component{
         
         return (
             <div className="subContainer">
-                <div onChange={(e) => this.sortNames(e)}>
+                <div onChange={(e) => this.sortNames(e)} id="radioContainer">
                     Sort<br/>
                     <input type="radio" value="amount" name="sort" defaultChecked="true"/><label>By amount</label><br/>
                     <input type="radio" value="name" name="sort"/><label>By name</label>

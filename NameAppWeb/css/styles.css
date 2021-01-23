@@ -1,24 +1,90 @@
-.mainContainer{
-    border: solid black 1px;
-    padding: 0.5em;
-    display: inline-block;
-}
-
-.subContainer{
-    border: solid red 1px;
-    padding: 0.5em;
+:root{
+    --document-bg: #666;
+    --bg: #fff;
+    --bg2: #aaa;
+    --hl: #db1e32;
+    --hl-dark: #7d0f1b;
+    --text: #090909;
+    --text-accent: #fff;
 }
 
 *{
     font-family: sans-serif;
-    margin: 2px;
+    color: var(--text);
+    font-size: 1.025em;
 }
 
-.dark{
-    background-color: #DDD;
+body{
+    margin: 0;
+}
+
+div{
+    text-align: left;
+}
+
+#root{
+    text-align: center;
+    background-color: var(--document-bg);
+    padding: 10px;
+}
+
+#radioContainer{
+    margin-bottom: 8px;
+}
+
+
+.mainContainer{
+    display: inline-block;
+}
+
+.subContainer{
+    padding: 0.75em;
+    background-color: var(--bg);
+    margin-bottom: 1em;
+}
+
+.oddItem{
+    background-color: var(--bg2);
 }
 
 .nameItem{
     display: flex;
     justify-content: space-between;
+    padding: 4px 8px;
 }
+
+button{
+    vertical-align: middle;
+    margin: 4px;
+    
+    background: var(--hl);
+    border: 0;
+    color: var(--text-accent);
+}
+
+button:hover{
+    cursor: pointer;
+    transition: 0.75s;
+    color: var(--text);
+}
+
+button:active{
+    color: var(--text);
+    background: var(--hl-dark);
+    transition: 0s;
+}
+
+button:focus {
+    outline:0
+}
+
+input[type=text]{
+    margin: 4px;
+    vertical-align: middle;
+}
+
+input[type=text]:focus{
+    outline: 0;
+    box-shadow: 0 0 8px 1px var(--hl);
+}
+
