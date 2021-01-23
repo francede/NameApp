@@ -6,6 +6,7 @@
     --hl-dark: #7d0f1b;
     --text: #090909;
     --text-accent: #fff;
+    --shadow: #303030;
 }
 
 *{
@@ -85,6 +86,6 @@ input[type=text]{
 
 input[type=text]:focus{
     outline: 0;
-    box-shadow: 0 0 8px 1px var(--hl);
+    box-shadow: 0 0 8px 1px var(--shadow);
 }
 
