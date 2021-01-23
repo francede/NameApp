@@ -59,7 +59,7 @@ Returns sum of all names in the database
 
 * **URL**
 
-    `/api/amount`
+    `/api/sum`
     
 * **Method**
 
@@ -69,4 +69,4 @@ Returns sum of all names in the database
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ "sum_of_amounts" : 211 }`
+    **Content:** `{ "sum" : 211 }`
