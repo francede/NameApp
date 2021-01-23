@@ -29,7 +29,7 @@ def get_name(name):
     return json.dumps(name), 200
 
 
-@api_blueprint.route("/amount", methods=["GET"])
+@api_blueprint.route("/sum", methods=["GET"])
 def get_amount():
-    return json.dumps({"sum_of_amounts": name_db.select_sum_of_amounts()})
+    return json.dumps({"sum": name_db.select_sum_of_amounts()})
 
