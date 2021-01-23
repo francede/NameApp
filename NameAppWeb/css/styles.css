@@ -85,6 +85,8 @@ button{
     background: var(--hl);
     border: 0;
     color: var(--text-accent);
+    
+    transition: 0.75s;
 }
 
 button:hover{
