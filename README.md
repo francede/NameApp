@@ -1,6 +1,6 @@
-##API Reference
+API Reference
 ---
-###Fetch names
+**Fetch names**
 
 Returns list of all names in the database. By default returns names ordered by index.
 
@@ -24,7 +24,7 @@ Returns list of all names in the database. By default returns names ordered by i
   * **Code:** 200 <br/>
     **Content:** `{ "names" : [{"name":"Ville", "amount":"10"}] }`
     
-###Fetch names starting with x
+**Fetch names starting with x**
 
 Returns list of names starting with given substring. List is sorted alphabetically. Returns empty array if no matching names are found.
 
@@ -49,7 +49,7 @@ Returns list of names starting with given substring. List is sorted alphabetical
     **Content:** `["Anna","Antti"]`
 
     
-###Fetch name
+**Fetch name**
 
 Returns one name from the database.
 
@@ -78,7 +78,7 @@ Returns one name from the database.
   * **Code:** 404 <br/>
     **Content:** `{"msg":"Name not found"}`
     
-###Fetch sum of names
+**Fetch sum of names**
 
 Returns sum of all names in the database
 
