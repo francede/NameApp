@@ -10,12 +10,23 @@ class NameSearch extends React.Component{
             isLoaded: false,
             isFound: false,
             error: "",
+            inputValue: "",
             
-            inputValue: ""
+            //Localized strings
+            string_name: "",
+            string_amount: "",
+            string_name_not_found_in_database: ""
         }
+        this.getLocalizedStrings();
         
         this.handleClick = this.handleClick.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
+    }
+    
+     getLocalizedStrings(){
+        localizator.getTranslation("name", "Name:", (str)=>{this.setState({string_name: str})});
+        localizator.getTranslation("amount", "Amount:", (str)=>{this.setState({string_amount: str})});
+        localizator.getTranslation("name_not_found_in_database", "Name not found in database", (str)=>{this.setState({string_name_not_found_in_database: str})});
     }
     
     handleClick(e){
@@ -47,17 +58,17 @@ class NameSearch extends React.Component{
     }
         
     render() {
-        var nameElement = <div>Waiting for search</div>
+        var nameElement = <div></div>
         if(this.state.isLoaded && this.state.isFound){
-            nameElement = <div>Name: {this.state.name} <br/> Amount: {this.state.amount}</div>
+            nameElement = <div>{this.state.string_name} {this.state.name} <br/> {this.state.string_amount} {this.state.amount}</div>
         }else if(this.state.isLoaded && !this.state.isFound){
-            nameElement = <div>Name not found in database</div>
+            nameElement = <div>{this.state.string_name_not_found_in_database}</div>
         }
         
         return (
             <div className="subContainer">
                 <div>
-                    Name:
+                    {this.state.string_name}
                     <AutocompleteInput id="search_input" onValueChange={(value) => this.handleValueChange(value)}/>
                     <button onClick={this.handleClick} className="material-icons">search</button>
                 </div>

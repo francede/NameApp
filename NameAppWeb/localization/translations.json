@@ -1,0 +1,37 @@
+{
+    "languages":["en","fi"],
+    "translations":{
+        "total_number_of_names":{
+            "en":"Total number of names:",
+            "fi":"Kaikki nimet yhteensä:"
+        },
+        "waiting_for_data":{
+            "en":"Waiting for data...",
+            "fi":"Haetaan tietoja..."
+        },
+        "sort":{
+            "en":"Sort",
+            "fi":"Järjestä"
+        },
+        "by_amount":{
+            "en":"By amount",
+            "fi":"Määrän mukaan"
+        },
+        "by_name":{
+            "en":"By name",
+            "fi":"Nimen mukaan"
+        },
+        "name":{
+            "en":"Name:",
+            "fi":"Nimi:"
+        },
+        "amount":{
+            "en":"Amount:",
+            "fi":"Määrä"
+        },
+        "name_not_found_in_database":{
+            "en":"Name not found in database",
+            "fi":"Nimeä ei löytynyt tietokannasta"
+        }
+    }
+}

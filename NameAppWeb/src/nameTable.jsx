@@ -7,8 +7,15 @@ class NameTable extends React.Component{
         this.state = {
             names:[],
             isLoaded: false,
-            error: null
+            error: null,
+            
+            //Localized strings
+            string_waiting_for_data: "",
+            string_sort: "",
+            string_by_amount: "",
+            string_by_name: ""
         }
+        this.getLocalizedStrings();
     }
     
     componentDidMount(){
@@ -23,6 +30,13 @@ class NameTable extends React.Component{
             (error) => {
                 alert(error);
             });
+    }
+    
+    getLocalizedStrings(){
+        localizator.getTranslation("waiting_for_data", "Waiting for data", (str)=>{this.setState({string_waiting_for_data: str})});
+        localizator.getTranslation("sort", "Sort", (str)=>{this.setState({string_sort: str})});
+        localizator.getTranslation("by_amount", "By amount", (str)=>{this.setState({string_by_amount: str})});
+        localizator.getTranslation("by_name", "By name", (str)=>{this.setState({string_by_name: str})});
     }
     
     sortNames(by){
@@ -45,7 +59,7 @@ class NameTable extends React.Component{
     }
         
     render() {
-        var names = <div>Waiting for data...</div>
+        var names = <div>{this.state.string_waiting_for_data}</div>
         if(this.state.isLoaded){
             names = 
                 <div>
@@ -58,9 +72,9 @@ class NameTable extends React.Component{
         return (
             <div className="subContainer">
                 <div onChange={(e) => this.sortNames(e.target.value)} id="radioContainer">
-                    Sort<br/>
-                    <input type="radio" value="amount" name="sort" defaultChecked="true"/><label>By amount</label><br/>
-                    <input type="radio" value="name" name="sort"/><label>By name</label>
+                    {this.state.string_sort}<br/>
+                    <input type="radio" value="amount" name="sort" defaultChecked="true"/><label>{this.state.string_by_amount}</label><br/>
+                    <input type="radio" value="name" name="sort"/><label>{this.state.string_by_name}</label>
                 </div>
                 {names} 
             </div>

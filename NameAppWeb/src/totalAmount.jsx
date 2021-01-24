@@ -7,9 +7,12 @@ class TotalAmount extends React.Component{
         this.state = {
             amount:"",
             isLoaded: false,
-            error: null
+            error: null,
+            
+            //Localisation strings
+            string_total_number_of_names: ""
         }
-        
+        this.getLocalizedStrings();
     }
     
     componentDidMount(){
@@ -29,11 +32,15 @@ class TotalAmount extends React.Component{
                 });
             });
     }
+    
+    getLocalizedStrings(){
+        localizator.getTranslation("total_number_of_names", "Total number of names:", (str)=>{this.setState({string_total_number_of_names: str})});
+    }
         
     render() {
         return (
             <div className="subContainer">
-                Total number of names: {this.state.isLoaded ? this.state.amount : "waiting for data"}
+                {this.state.string_total_number_of_names} {this.state.isLoaded ? this.state.amount : "waiting for data"}
             </div>
         );
     }

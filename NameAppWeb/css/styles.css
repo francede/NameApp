@@ -33,6 +33,19 @@ div{
     margin-bottom: 8px;
 }
 
+.appContainer{
+    text-align: center;
+}
+
+.header{
+    
+}
+
+.langButton{
+    cursor: pointer;
+    margin: 4px;
+}
+
 
 .mainContainer{
     display: inline-block;
