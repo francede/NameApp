@@ -3,7 +3,7 @@ class AutocompleteInput extends React.Component{
         super(props);
         this.state = {
             autocompleteList:[],
-            hasFocus: false,
+            autocompleteOpen: false,
             inputValue: "",
             hoveredIndex: -1
         }
@@ -29,21 +29,40 @@ class AutocompleteInput extends React.Component{
         )
     }
     
+    updateAutocomplete(value){
+        this.fetchNames(value);
+        
+        if(this.state.autocompleteOpen) return;
+        this.setState({
+            autocompleteOpen: true,
+            hoveredIndex: -1
+        });
+    }
+    
+    closeAutocomplete(){
+        if(!this.state.autocompleteOpen) return;
+        
+        this.setState({
+            autocompleteOpen: false,
+            autocompleteList: [] //Reset list to prevent the old list showing up briefly on next open
+        })
+    }
+    
     changeInput(value){
         this.setState({inputValue: value});
         this.props.onValueChange(value);
     }
     
-    handleClick(e){
+    handleOptionClick(e){
         this.changeInput(e.target.getAttribute("value")); //e.target.value will not work, because value is not a default attribute of <div>
-        this.setState({hasFocus: false});
+        this.closeAutocomplete();
     }
     
     handleKeyPress(e){
         switch(e.keyCode){
             case 13: //Enter, handles same way as click
                 this.changeInput(this.state.autocompleteList[this.state.hoveredIndex]);
-                this.setState({hasFocus: false});
+                this.closeAutocomplete();
                 break;
             case 38: //Up arrow
                 var newIndex;
@@ -79,38 +98,29 @@ class AutocompleteInput extends React.Component{
                 this.setState({hoveredIndex: newIndex});
                 break;
         }
-        console.log(this.state.hoveredIndex);
+        if(e.keyCode===38 || e.keyCode===40) e.preventDefault(); //Disable arrow keys moving left and right in the input
     }
     
-    handleChange(e){
-        if(!this.state.hasFocus) this.setState({hasFocus:true});
+    handleInputChange(e){
         this.changeInput(e.target.value);
-        this.fetchNames(e.target.value);
-        
-        console.log(this.state.hoveredIndex, this.state.autocompleteList.length-1);
-        if(this.state.hoveredIndex > this.state.autocompleteList.length-1){
-            this.setState({hoveredIndex:-1});
-        }
+        this.updateAutocomplete(e.target.value);
     }
     
     handleFocus(e){
-        if(this.state.hasFocus) return;
-        
-        this.setState({hasFocus: true});
-        this.fetchNames(e.target.value);
+        this.updateAutocomplete(this.state.inputValue);
     }
     
     handleBlur(e){
         if(e.relatedTarget == null || 
             e.relatedTarget.id !== this.props.id+"_autocompleteList"){
-                this.setState({hasFocus: false});
+                this.closeAutocomplete();
         }
     }
     
     
     render(){
         const autocompleteList = (
-            <div id={this.props.id + "_autocompleteList"} className="autocompleteList" onClick={(e)=>this.handleClick(e)} tabIndex="0">
+            <div id={this.props.id + "_autocompleteList"} className="autocompleteList" onClick={(e)=>this.handleOptionClick(e)} tabIndex="0">
                 {this.state.autocompleteList.map( (name, i) => 
                     <div 
                         key={name} 
@@ -123,8 +133,8 @@ class AutocompleteInput extends React.Component{
         
         return (
             <div className="autocomplete" onFocus={(e) => this.handleFocus(e)} onBlur={(e) => this.handleBlur(e)} onKeyDown={(e)=>this.handleKeyPress(e)}>
-                <input type="text" onChange={(e)=>this.handleChange(e)} value={this.state.inputValue}/>
-                {this.state.hasFocus && autocompleteList}
+                <input type="text" onChange={(e)=>this.handleInputChange(e)} value={this.state.inputValue}/>
+                {this.state.autocompleteOpen && autocompleteList}
             </div>
         );
     }
