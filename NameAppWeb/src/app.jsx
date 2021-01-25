@@ -25,6 +25,7 @@ class App extends React.Component{
                 <div className="header">
                     <img src="localization/icon_en.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("en")}></img>
                     <img src="localization/icon_fi.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("fi")}></img>
+                    <img src="localization/icon_it.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("it")}></img>
                 </div>
                 <div className="mainContainer">
                     <NameSearch/>

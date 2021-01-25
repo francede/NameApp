@@ -1,37 +1,45 @@
 {
-    "languages":["en","fi"],
+    "languages":["en","fi", "it"],
     "translations":{
         "total_number_of_names":{
             "en":"Total number of names:",
-            "fi":"Kaikki nimet yhteensä:"
+            "fi":"Kaikki nimet yhteensä:",
+            "it":"Totale nomi:"
         },
         "waiting_for_data":{
             "en":"Waiting for data...",
-            "fi":"Haetaan tietoja..."
+            "fi":"Haetaan tietoja...",
+            "it":"Ottenendo dati..."
         },
         "sort":{
             "en":"Sort",
-            "fi":"Järjestä"
+            "fi":"Järjestä",
+            "it":"Ordina"
         },
         "by_amount":{
             "en":"By amount",
-            "fi":"Määrän mukaan"
+            "fi":"Määrän mukaan",
+            "it":"Per quantità"
         },
         "by_name":{
             "en":"By name",
-            "fi":"Nimen mukaan"
+            "fi":"Nimen mukaan",
+            "it":"Per nome"
         },
         "name":{
             "en":"Name:",
-            "fi":"Nimi:"
+            "fi":"Nimi:",
+            "it":"Nome:"
         },
         "amount":{
             "en":"Amount:",
-            "fi":"Määrä:"
+            "fi":"Määrä:",
+            "it":"Quantità:"
         },
         "name_not_found_in_database":{
             "en":"Name not found in database",
-            "fi":"Nimeä ei löytynyt tietokannasta"
+            "fi":"Nimeä ei löytynyt tietokannasta",
+            "it":"Nome non trovato nel database"
         }
     }
 }
