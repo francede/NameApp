@@ -11,7 +11,7 @@ class TotalAmount extends React.Component{
             
             //Localisation strings
             string_total_number_of_names: "",
-            waiting_for_data: ""
+            string_waiting_for_data: ""
         }
         this.getLocalizedStrings();
     }
@@ -36,13 +36,13 @@ class TotalAmount extends React.Component{
     
     getLocalizedStrings(){
         localizator.getTranslation("total_number_of_names", "Total number of names:", (str)=>{this.setState({string_total_number_of_names: str})});
-        localizator.getTranslation("waiting_for_data", "Waiting for data...", (str)=>{this.setState({waiting_for_data: str})});
+        localizator.getTranslation("waiting_for_data", "Waiting for data...", (str)=>{this.setState({string_waiting_for_data: str})});
     }
         
     render() {
         return (
             <div className="subContainer">
-                {this.state.string_total_number_of_names} {this.state.isLoaded ? this.state.amount : "waiting for data"}
+                {this.state.string_total_number_of_names} {this.state.isLoaded ? this.state.amount : {this.state.string_waiting_for_data}}
             </div>
         );
     }
