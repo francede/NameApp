@@ -72,10 +72,21 @@ class NameTable extends React.Component{
         return (
             <div className="subContainer">
                 <div onChange={(e) => this.sortNames(e.target.value)} id="radioContainer">
-                    {this.state.string_sort}<br/>
-                    <input type="radio" value="amount" name="sort" defaultChecked="true"/><label>{this.state.string_by_amount}</label><br/>
-                    <input type="radio" value="name" name="sort"/><label>{this.state.string_by_name}</label>
+                    {this.state.string_sort} <br/>
+                    <input type="radio" 
+                        value="amount" 
+                        name="sort" 
+                        defaultChecked="true"/>
+                    
+                    <label>{this.state.string_by_amount}</label><br/>
+                    
+                    <input type="radio" 
+                        value="name" 
+                        name="sort"/>
+                    
+                    <label>{this.state.string_by_name}</label>
                 </div>
+                
                 {names} 
             </div>
         );

@@ -120,7 +120,11 @@ class AutocompleteInput extends React.Component{
     
     render(){
         const autocompleteList = (
-            <div id={this.props.id + "_autocompleteList"} className="autocompleteList" onClick={(e)=>this.handleOptionClick(e)} tabIndex="0">
+            <div id={this.props.id + "_autocompleteList"} 
+                className="autocompleteList" 
+                onClick={(e)=>this.handleOptionClick(e)} 
+                tabIndex="0">
+                
                 {this.state.autocompleteList.map( (name, i) => 
                     <div 
                         key={name} 
@@ -128,12 +132,19 @@ class AutocompleteInput extends React.Component{
                         onMouseEnter={(e)=>this.setState({hoveredIndex:i})} 
                         className={this.state.hoveredIndex===i ? "hovered" : ""}>{name}</div>
                 )}
+                
             </div>
         );
         
         return (
-            <div className="autocomplete" onFocus={(e) => this.handleFocus(e)} onBlur={(e) => this.handleBlur(e)} onKeyDown={(e)=>this.handleKeyPress(e)}>
-                <input type="text" onChange={(e)=>this.handleInputChange(e)} value={this.state.inputValue}/>
+            <div className="autocomplete"
+                onFocus={(e) => this.handleFocus(e)} 
+                onBlur={(e) => this.handleBlur(e)} 
+                onKeyDown={(e)=>this.handleKeyPress(e)}>
+                
+                <input type="text" 
+                    onChange={(e)=>this.handleInputChange(e)} 
+                    value={this.state.inputValue}/>
                 {this.state.autocompleteOpen && autocompleteList}
             </div>
         );
