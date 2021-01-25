@@ -27,7 +27,7 @@
         },
         "amount":{
             "en":"Amount:",
-            "fi":"Määrä"
+            "fi":"Määrä:"
         },
         "name_not_found_in_database":{
             "en":"Name not found in database",
