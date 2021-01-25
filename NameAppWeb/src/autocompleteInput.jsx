@@ -36,6 +36,7 @@ class AutocompleteInput extends React.Component{
     toggleFocus(e){
         switch(e.type){
             case "focus":
+                if(this.state.hasFocus) return;
                 this.setState({hasFocus: true});
                 this.fetchNames(e.target.value);
                 break;
