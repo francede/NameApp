@@ -77,7 +77,7 @@ div{
     cursor: pointer;
 }
 
-.autocompleteList div:hover{
+.autocompleteList .hovered{
     background-color: var(--hl);
 }
 
