@@ -23,9 +23,9 @@ class App extends React.Component{
         return (
             <div className="appContainer">
                 <div className="header">
-                    <img src="localization/icon_en.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("en")}></img>
-                    <img src="localization/icon_fi.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("fi")}></img>
-                    <img src="localization/icon_it.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("it")}></img>
+                    <img src="localization/icon_en.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("en")} title="English"/>
+                    <img src="localization/icon_fi.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("fi")} title="Suomi"/>
+                    <img src="localization/icon_it.svg" height="40px" className="langButton" onClick={(e)=>changeLanguage("it")} title="Italiano"/>
                 </div>
                 <div className="mainContainer">
                     <NameSearch/>
