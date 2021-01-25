@@ -42,7 +42,7 @@ class TotalAmount extends React.Component{
     render() {
         return (
             <div className="subContainer">
-                {this.state.string_total_number_of_names} {this.state.isLoaded ? this.state.amount : {this.state.string_waiting_for_data}}
+                {this.state.string_total_number_of_names} {this.state.isLoaded ? this.state.amount : this.state.string_waiting_for_data}
             </div>
         );
     }
