@@ -38,7 +38,6 @@ class NameSearch extends React.Component{
         .then(res => {
             if(!res.ok && res.status === 404){
                 this.setState({isLoaded:true, isFound:false});
-                throw new Error("404: Name not found in the database.");
             }else{
                 res.json().then(
                     (res) => {
